@@ -2,7 +2,8 @@ CXX		=	g++
 CXXFLAGS	=	-W -Wall
 LFLAGS		=	
 TARGET		=	libneural_network.a
-SOURCES		=	perceptron.cpp \
+SOURCES		=	mlperceptron.cpp \
+				perceptron.cpp \
 				neural_network_exception.cpp \
 				seed_initializer.cpp \
 				activation_function.cpp

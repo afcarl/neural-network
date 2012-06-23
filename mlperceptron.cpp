@@ -62,7 +62,7 @@ void MLPerceptron::train(const std::vector<double>& input, const std::vector<dou
 	output = this->getOutput(input);
 	for (unsigned int i = 0; i < output_layer_.size(); ++i) {
 		if (mse_) {
-			mse_ = pow(mse_ + target_output[i] - output[i], 2) / 2;
+			mse_ = (mse_ + pow(target_output[i] - output[i], 2)) / 2;
 		}
 		else {
 			mse_ = pow(target_output[i] - output[i], 2);
