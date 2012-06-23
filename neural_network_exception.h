@@ -10,7 +10,7 @@
 
 class NeuralNetworkException: public std::exception {
  private:
-  const char* _err;
+  const char* err_;
   virtual const char* what() const throw();
 
  public:
