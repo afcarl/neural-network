@@ -10,7 +10,6 @@ class SeedInitializer {
  public:
   static void initialize();
   static double rand(double a, double b);
-  static int rand(int a, int b);
 
  private:
   static bool _initialized;
