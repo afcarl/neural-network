@@ -6,7 +6,7 @@
 #ifndef PERCEPTRON_H_
 #define PERCEPTRON_H_
 
-#include "./genotype.h"
+#include <vector>
 
 namespace NeuralNetwork {
 
@@ -17,6 +17,7 @@ class Perceptron {
   std::vector<double> weights_;
   std::vector<double> inputs_;
   double threshold_;
+  double output_;
   int size_;
 
  public:
@@ -25,7 +26,9 @@ class Perceptron {
   void updateWeights(double delta);
   void randomizeWeights(int left_limit = -1.0, int right_limit = 1.0);
   const std::vector<double>& getWeights() const;
+  double getLastOutput() const;
   double getThreshold() const;
+  void setActivationFunction(double (*f)(double));
   virtual ~Perceptron();
 };
 }
