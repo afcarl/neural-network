@@ -2,10 +2,10 @@
  * Neural Network Library
  * Copyright 2012, Mickael Lebedev
  */
-
+#include <iostream>
 #include "./perceptron.h"
 #include "./activation_function.h"
-#include "./seed_initializer.h"
+#include "./random.h"
 #include "./neural_network_exception.h"
 
 using namespace NeuralNetwork;
@@ -17,14 +17,15 @@ Perceptron::Perceptron(int inputs_nb) :
     activation(ActivationFunction::heavyside),
     weights_(inputs_nb),
     size_(inputs_nb) {
-  SeedInitializer::initialize();
+  Random::initialize();
+  randomizeWeights();
 }
 
-void Perceptron::randomizeWeights(int left_limit, int right_limit) {
+void Perceptron::randomizeWeights(int min, int max) {
   for (int i = 0; i < size_; ++i) {
-    weights_[i] = SeedInitializer::rand(left_limit, right_limit);
+    weights_[i] = Random::rand(min, max);
   }
-  threshold_ = SeedInitializer::rand(left_limit, right_limit);
+  threshold_ = Random::rand(min, max);
 }
 
 double Perceptron::getOutput(const std::vector<double>& inputs) {

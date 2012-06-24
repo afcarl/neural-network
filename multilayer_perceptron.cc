@@ -16,12 +16,10 @@ MultilayerPerceptron::MultilayerPerceptron(int input_nb, int hidden_layer_size, 
   input_nb_(input_nb), mse_(0), hidden_layer_(hidden_layer_size), output_layer_(output_nb) {
   for (int i = 0; i < hidden_layer_size; ++i) {
     hidden_layer_[i] = new Perceptron(input_nb);
-    hidden_layer_[i]->randomizeWeights();
     hidden_layer_[i]->setActivationFunction(ActivationFunction::sigmoid);
   }
   for (int i = 0; i < output_nb; ++i) {
     output_layer_[i] = new Perceptron(hidden_layer_size);
-    output_layer_[i]->randomizeWeights();
     output_layer_[i]->setActivationFunction(ActivationFunction::sigmoid);
   }
 }

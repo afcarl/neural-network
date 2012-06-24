@@ -27,7 +27,7 @@ class Perceptron {
   void trainOnData(const std::vector<std::vector<double> >& input_set,
                    const std::vector<double>& target_output_set,
                    int max_epochs);
-  void randomizeWeights(int left_limit = -1.0, int right_limit = 1.0);
+  void randomizeWeights(int min = -1.0, int max = 1.0);
   const std::vector<double>& getWeights() const;
   double getLastOutput() const;
   double getThreshold() const;
