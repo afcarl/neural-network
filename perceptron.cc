@@ -37,6 +37,19 @@ double Perceptron::getOutput(const std::vector<double>& inputs) {
   return output_ = activation(sum + threshold_);
 }
 
+void Perceptron::trainOnData(const std::vector<std::vector<double> >& input_set,
+  const std::vector<double>& target_output_set,
+  int max_epochs) {
+    for (int i = 0; i < max_epochs; i++) {
+    	for (unsigned int j = 0; j < input_set.size(); j++) {
+			double out = getOutput(input_set[j]);
+			if (target_output_set[j] != out) {
+				updateWeights(target_output_set[j] - out);
+			}
+	    }
+    }
+}
+
 void Perceptron::updateWeights(double delta) {
   for (int i = 0; i < size_; ++i) {
     weights_[i] += (delta * learning_rate_ * inputs_[i]);
