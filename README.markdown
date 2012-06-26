@@ -27,6 +27,14 @@ $ g++ main.cpp -L. -lneural-network
 
 Where -L specifies the path where the library is located, in this example it's in the current folder.
 
+Perceptron
+----------
+
+The single-layer perceptron is a simple linear classifier. For a given input, usually a real-valued vector, it will output
+a binary value. The example folder includes an example of how we can train a perceptron to act as a logic OR gate.
+
+By default, weights and biases are initialized with a random value between -1.0 and 1.0. The default learning rate is 0.1.
+
 Author
 ------
 Mickael Lebedev :: mickael.lebedev@gmail.com

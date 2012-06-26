@@ -18,7 +18,6 @@ std::vector<double>& output_data) {
 
 int main(void) {
 	NeuralNetwork::Perceptron p(2);
-	p.randomizeWeights(-1, 1);
 	std::vector<std::vector<double> > input_data(4);
 	std::vector<double> output_data(4);
 	create_training_data(input_data, output_data);
